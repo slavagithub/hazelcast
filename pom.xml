@@ -343,6 +343,8 @@
                         -Dhazelcast.phone.home.enabled=false
                         -Dhazelcast.test.use.network=false
                         -Dlog4j.skipJansi=true
+                        -Xmx2g
+                        -XX:MaxPermSize=1024m
                         ${extraVmArgs}
                     </argLine>
                     <includes>
