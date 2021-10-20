@@ -340,6 +340,9 @@
                     <argLine>
                         --add-opens=java.base/java.util=ALL-UNNAMED
                         --add-opens=java.base/java.io=ALL-UNNAMED
+                        --add-opens=java.base/java.base=ALL-UNNAMED
+                        --add-opens=java.base/java.net=ALL-UNNAMED
+                        --add-opens=java.base/java.lang.reflect=ALL-UNNAMED
                         ${vmHeapSettings}
                         ${javaModuleArgs}
                         -Dhazelcast.phone.home.enabled=false
