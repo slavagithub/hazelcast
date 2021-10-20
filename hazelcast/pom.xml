@@ -637,8 +637,8 @@
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
             <version>3.0.8</version>
-            <scope>provided</scope>
-            <optional>true</optional>
+<!--            <scope>provided</scope>-->
+<!--            <optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>org.jruby</groupId>
