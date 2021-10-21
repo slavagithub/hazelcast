@@ -458,7 +458,7 @@
                         <phase>generate-resources</phase>
                         <configuration>
                             <outputDirectory>${project.build.outputDirectory}/META-INF</outputDirectory>
-                            <failOnBlacklist>false</failOnBlacklist>
+                            <failOnBlacklist>true</failOnBlacklist>
                             <failOnMissing>true</failOnMissing>
                             <fileTemplate>${main.basedir}/hazelcast-build-utils/src/main/resources/hazelcast-thirdparty-template.ftl</fileTemplate>
                             <includedLicenses>
