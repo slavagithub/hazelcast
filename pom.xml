@@ -325,6 +325,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration combine.self="override">
+
                     <useFile>false</useFile>
                     <trimStackTrace>false</trimStackTrace>
                     <runOrder>failedfirst</runOrder>
@@ -338,11 +339,6 @@
                     <parallel>methods</parallel -->
                     <!-- JaCoCo will use the argLine set here. Test profiles override it. -->
                     <argLine>
-                        --add-opens=java.base/java.util=ALL-UNNAMED
-                        --add-opens=java.base/java.io=ALL-UNNAMED
-                        --add-opens=java.base/java.base=ALL-UNNAMED
-                        --add-opens=java.base/java.net=ALL-UNNAMED
-                        --add-opens=java.base/java.lang.reflect=ALL-UNNAMED
                         ${vmHeapSettings}
                         ${javaModuleArgs}
                         -Dhazelcast.phone.home.enabled=false
@@ -1190,6 +1186,11 @@
                    export java.xml/jdk.xml.internal
                 -->
                 <javaModuleArgs>
+                    --add-opens java.base/java.util=ALL-UNNAMED
+                    --add-opens java.base/java.io=ALL-UNNAMED
+                    --add-opens java.base/java.base=ALL-UNNAMED
+                    --add-opens java.base/java.net=ALL-UNNAMED
+                    --add-opens java.base/java.lang.reflect=ALL-UNNAMED
                     --add-exports java.base/jdk.internal.ref=ALL-UNNAMED
                     --add-opens jdk.management/com.sun.management.internal=ALL-UNNAMED
                     --add-opens java.base/sun.nio.ch=ALL-UNNAMED
