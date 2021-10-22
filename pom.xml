@@ -1191,6 +1191,7 @@
                     --add-opens java.base/java.base=ALL-UNNAMED
                     --add-opens java.base/java.net=ALL-UNNAMED
                     --add-opens java.base/java.lang.reflect=ALL-UNNAMED
+                    --add-opens java.base/java.nio.channels.spi=ALL-UNNAMED
                     --add-exports java.base/jdk.internal.ref=ALL-UNNAMED
                     --add-opens jdk.management/com.sun.management.internal=ALL-UNNAMED
                     --add-opens java.base/sun.nio.ch=ALL-UNNAMED
