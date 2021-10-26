@@ -38,6 +38,9 @@ public final class PhysicalRules {
                 FullScanPhysicalRule.INSTANCE,
                 IndexScanMapPhysicalRule.INSTANCE,
 
+                // Windowing rules
+                WatermarkPhysicalRule.INSTANCE,
+
                 // Aggregate rules
                 AggregatePhysicalRule.INSTANCE,
 
@@ -45,7 +48,8 @@ public final class PhysicalRules {
                 SortPhysicalRule.INSTANCE,
 
                 // Join rules
-                JoinPhysicalRule.INSTANCE,
+                JoinNestedLoopPhysicalRule.INSTANCE,
+                JoinHashPhysicalRule.INSTANCE,
 
                 // Union rules
                 UnionPhysicalRule.INSTANCE,
