@@ -280,8 +280,10 @@ public class HazelcastSqlValidator extends SqlValidatorImplBridge {
                     throw newValidationError(join, RESOURCE.streamingSourceOnWrongSide());
                 }
                 break;
+            case FULL:
+                throw QueryException.error(SqlErrorCode.PARSING, "FULL join not supported");
             default:
-                break;
+                throw QueryException.error(SqlErrorCode.PARSING, "Unexpected join type: " + join.getJoinType());
         }
     }
 
@@ -507,7 +509,7 @@ public class HazelcastSqlValidator extends SqlValidatorImplBridge {
 
             if (converter == null) {
                 QueryDataType targetType =
-                        HazelcastTypeUtils.toHazelcastType(rowType.getFieldList().get(i).getType().getSqlTypeName());
+                        HazelcastTypeUtils.toHazelcastType(rowType.getFieldList().get(i).getType());
                 converter = AbstractParameterConverter.from(targetType, i, parameterPositionMap.get(i));
             }
 
