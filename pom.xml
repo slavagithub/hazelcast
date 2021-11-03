@@ -14,9 +14,8 @@
   ~ limitations under the License.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                       http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -158,10 +157,10 @@
         <relocation.root>com.hazelcast</relocation.root>
 
         <!-- Additional JVM system arguments -->
-        <extraVmArgs/>
+        <extraVmArgs />
         <vmHeapSettings>-Xms512m -Xmx2G</vmHeapSettings>
         <!-- Java 9+ module system args to be appended during surefire/failsafe executions. -->
-        <javaModuleArgs/>
+        <javaModuleArgs />
 
         <!-- needed for CheckStyle -->
         <checkstyle.version>8.38</checkstyle.version>
@@ -457,7 +456,9 @@
                             <outputDirectory>${project.build.outputDirectory}/META-INF</outputDirectory>
                             <failOnBlacklist>true</failOnBlacklist>
                             <failOnMissing>true</failOnMissing>
-                            <fileTemplate>${main.basedir}/hazelcast-build-utils/src/main/resources/hazelcast-thirdparty-template.ftl</fileTemplate>
+                            <fileTemplate>
+                                ${main.basedir}/hazelcast-build-utils/src/main/resources/hazelcast-thirdparty-template.ftl
+                            </fileTemplate>
                             <includedLicenses>
                                 <includedLicense>CC0</includedLicense>
                                 <includedLicense>Apache License, Version 2.0</includedLicense>
@@ -476,9 +477,11 @@
                                     Apache 2|Apache 2.0|Apache-2.0|Apache License 2.0|The Apache License, Version 2.0|
                                     Apache Software License - Version 2.0|Apache License Version 2.0
                                 </licenseMerge>
-                                <licenseMerge>MIT License|MIT|The MIT License|MIT license|The MIT License (MIT)</licenseMerge>
+                                <licenseMerge>MIT License|MIT|The MIT License|MIT license|The MIT License (MIT)
+                                </licenseMerge>
                                 <licenseMerge>
-                                    BSD 3-Clause License|BSD License|BSD|BSD licence|The BSD License|3-Clause BSD License|
+                                    BSD 3-Clause License|BSD License|BSD|BSD licence|The BSD License|3-Clause BSD
+                                    License|
                                     New BSD License|New BSD license|The New BSD License|Revised BSD|BSD New license|
                                     BSD-3-Clause
                                 </licenseMerge>
@@ -495,8 +498,8 @@
                     </execution>
                 </executions>
                 <configuration>
-                        <excludedGroups>com.hazelcast</excludedGroups>
-                        <excludedScopes>test,provided</excludedScopes>
+                    <excludedGroups>com.hazelcast</excludedGroups>
+                    <excludedScopes>test,provided</excludedScopes>
                 </configuration>
             </plugin>
             <plugin>
@@ -723,7 +726,7 @@
             <properties>
                 <assembly.skipAssembly>true</assembly.skipAssembly>
                 <!-- Set the classifier to empty in this profile to use regular jar-->
-                <fat.dependency.classifier/>
+                <fat.dependency.classifier />
                 <shade.jar-with-dependencies.phase>none</shade.jar-with-dependencies.phase>
             </properties>
         </profile>
@@ -812,10 +815,10 @@
                         <version>${maven.cobertura.plugin.version}</version>
                         <configuration>
                             <instrumentation>
-                                <ignores/>
-                                <excludes/>
+                                <ignores />
+                                <excludes />
                             </instrumentation>
-                            <check/>
+                            <check />
                         </configuration>
                         <executions>
                             <execution>
@@ -1199,28 +1202,19 @@
                    export java.xml/jdk.xml.internal
                 -->
                 <javaModuleArgs>
-<!--                    &#45;&#45;add-opens java.base/java.util=ALL-UNNAMED-->
-<!--                    &#45;&#45;add-opens java.base/java.io=ALL-UNNAMED-->
-<!--                    &#45;&#45;add-opens java.base/java.base=ALL-UNNAMED-->
-<!--                    &#45;&#45;add-opens java.base/java.net=ALL-UNNAMED-->
-<!--                    &#45;&#45;add-opens java.base/java.lang.reflect=ALL-UNNAMED-->
-<!--                    &#45;&#45;add-opens java.base/java.nio.channels.spi=ALL-UNNAMED-->
-                    --add-opens java.base/java.util=ALL-UNNAMED
-                    --add-opens java.base/java.io=ALL-UNNAMED
-                    --add-opens java.base/java.net=ALL-UNNAMED
-                    --add-opens java.base/java.lang.reflect=ALL-UNNAMED
-
-                    --add-opens java.base/java.nio.channels.spi=ALL-UNNAMED
-                    --add-opens java.base/java.util.concurrent=ALL-UNNAMED
-
-
-
                     --add-exports java.base/jdk.internal.ref=ALL-UNNAMED
                     --add-opens jdk.management/com.sun.management.internal=ALL-UNNAMED
                     --add-opens java.base/sun.nio.ch=ALL-UNNAMED
                     --add-opens java.base/java.lang=ALL-UNNAMED
                     --add-opens java.management/sun.management=ALL-UNNAMED
                     --add-exports java.xml/jdk.xml.internal=ALL-UNNAMED
+                    <!--additional access for JDK17 to address https://openjdk.java.net/jeps/403-->
+                    --add-opens java.base/java.util=ALL-UNNAMED
+                    --add-opens java.base/java.io=ALL-UNNAMED
+                    --add-opens java.base/java.net=ALL-UNNAMED
+                    --add-opens java.base/java.lang.reflect=ALL-UNNAMED
+                    --add-opens java.base/java.nio.channels.spi=ALL-UNNAMED
+                    --add-opens java.base/java.util.concurrent=ALL-UNNAMED
                     --illegal-access=warn
                 </javaModuleArgs>
             </properties>
