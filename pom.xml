@@ -1208,7 +1208,7 @@
                     --add-opens java.base/java.lang=ALL-UNNAMED
                     --add-opens java.management/sun.management=ALL-UNNAMED
                     --add-exports java.xml/jdk.xml.internal=ALL-UNNAMED
-                    <!--additional access for JDK17 to address https://openjdk.java.net/jeps/403-->
+                    <!--Allow additional access to address https://openjdk.java.net/jeps/403  for JDK17 -->
                     --add-opens java.base/java.util=ALL-UNNAMED
                     --add-opens java.base/java.io=ALL-UNNAMED
                     --add-opens java.base/java.net=ALL-UNNAMED
