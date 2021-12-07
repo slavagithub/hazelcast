@@ -162,18 +162,7 @@
         <extraVmArgs/>
         <vmHeapSettings>-Xms512m -Xmx2G</vmHeapSettings>
         <!-- Java 9+ module system args to be appended during surefire/failsafe executions. -->
-        <javaModuleArgs>
-            <!--
-              Allow additional access as a workaround of https://openjdk.java.net/jeps/403 for JDK17
-              Details in PR https://github.com/hazelcast/hazelcast/pull/19896
-             -->
-            --add-opens java.base/java.util=ALL-UNNAMED
-            --add-opens java.base/java.io=ALL-UNNAMED
-            --add-opens java.base/java.net=ALL-UNNAMED
-            --add-opens java.base/java.lang.reflect=ALL-UNNAMED
-            --add-opens java.base/java.nio.channels.spi=ALL-UNNAMED
-            --add-opens java.base/java.util.concurrent=ALL-UNNAMED
-        </javaModuleArgs>
+        <javaModuleArgs/>
 
         <!-- needed for CheckStyle -->
         <checkstyle.version>8.38</checkstyle.version>
@@ -1266,6 +1255,16 @@
                     --add-opens java.management/sun.management=ALL-UNNAMED
                     --add-exports java.xml/jdk.xml.internal=ALL-UNNAMED
                     --illegal-access=warn
+
+                    Allow additional access as a workaround of https://openjdk.java.net/jeps/403 for JDK17+
+                    Details in PR https://github.com/hazelcast/hazelcast/pull/19896
+                    -->
+                    --add-opens java.base/java.util=ALL-UNNAMED
+                    --add-opens java.base/java.io=ALL-UNNAMED
+                    --add-opens java.base/java.net=ALL-UNNAMED
+                    --add-opens java.base/java.lang.reflect=ALL-UNNAMED
+<!--                    &#45;&#45;add-opens java.base/java.nio.channels.spi=ALL-UNNAMED-->
+<!--                    &#45;&#45;add-opens java.base/java.util.concurrent=ALL-UNNAMED-->
                 </javaModuleArgs>
             </properties>
             <modules>
